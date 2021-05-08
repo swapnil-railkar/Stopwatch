@@ -12,7 +12,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
     private int seconds=0;
     private boolean running;
-    private boolean wasrunning;
+    private boolean wasRunning;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,27 +21,27 @@ public class MainActivity extends AppCompatActivity {
         {
             seconds=savedInstanceState.getInt("seconds");
             running=savedInstanceState.getBoolean("running");
-            wasrunning=savedInstanceState.getBoolean("wasrunning");
+            wasRunning =savedInstanceState.getBoolean("wasrunning");
         }
-        runtime(); 
+        runTime();
     }
     public void onSaveInstanceState(Bundle savedInstanceState) {
 
         super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putInt("seconds",seconds);
         savedInstanceState.putBoolean("running",running);
-        savedInstanceState.putBoolean("wasrunnig",wasrunning);
+        savedInstanceState.putBoolean("wasrunnig", wasRunning);
     }
     protected void onPause() {
 
         super.onPause();
-        wasrunning=running;
+        wasRunning =running;
         running=false;
     }
     public void onResume() {
 
         super.onResume();
-        if (wasrunning)
+        if (wasRunning)
             running=true;
     }
     public void onclickStart(View view)
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         running=false;
         seconds=0;
     }
-    private void runtime()
+    private void runTime()
     {
         final TextView timer=(TextView)findViewById(R.id.textView);
         final Handler handler=new Handler();
